@@ -1,0 +1,7 @@
+# EsikaTok — Robots.txt
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://esikatok-frontend.onrender.com/sitemap.xml

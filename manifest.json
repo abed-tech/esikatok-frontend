@@ -1,0 +1,20 @@
+{
+    "name": "EsikaTok — L'immobilier en vidéo courte",
+    "short_name": "EsikaTok",
+    "description": "Découvrez maisons, appartements et terrains en vidéo courte en RDC. Publiez, recherchez et contactez les agents immobiliers.",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#0f172a",
+    "theme_color": "#0f172a",
+    "lang": "fr",
+    "categories": ["business", "lifestyle"],
+    "icons": [
+        {
+            "src": "images/logo-compact.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ]
+}

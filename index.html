@@ -3,10 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="EsikaTok - Découvrez l'immobilier en vidéo courte">
-    <meta name="theme-color" content="#1a1a2e">
-    <meta name="api-base-url" content="">
-    <title>EsikaTok - Immobilier en vidéo</title>
+    <meta name="api-base-url" content="https://esikatok-api.onrender.com">
+
+    <!-- === SEO — Balises essentielles === -->
+    <title>EsikaTok — L'immobilier en vidéo courte | Achat, Location, Terrain en RDC</title>
+    <meta name="description" content="EsikaTok révolutionne l'immobilier en RDC. Découvrez maisons, appartements, terrains et locaux commerciaux en vidéo courte. Publiez, recherchez et contactez les agents immobiliers directement.">
+    <meta name="keywords" content="immobilier, RDC, Congo, Kinshasa, Lubumbashi, maison, appartement, terrain, location, vente, vidéo, agent immobilier, EsikaTok">
+    <meta name="author" content="EsikaTok">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="color-scheme" content="dark">
+    <link rel="canonical" href="https://esikatok-frontend.onrender.com/">
+
+    <!-- === Open Graph (Facebook, WhatsApp, Telegram, LinkedIn) === -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="EsikaTok">
+    <meta property="og:title" content="EsikaTok — L'immobilier en vidéo courte">
+    <meta property="og:description" content="Découvrez maisons, appartements et terrains en vidéo courte. Publiez vos biens, trouvez votre prochain logement en RDC.">
+    <meta property="og:url" content="https://esikatok-frontend.onrender.com/">
+    <meta property="og:image" content="https://esikatok-frontend.onrender.com/images/og-cover.png"><!-- Remplacer par un vrai PNG 1200x630 pour les réseaux sociaux -->
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="EsikaTok - Plateforme immobilière en vidéo courte en RDC">
+    <meta property="og:locale" content="fr_CD">
+
+    <!-- === Twitter Card === -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="EsikaTok — L'immobilier en vidéo courte">
+    <meta name="twitter:description" content="Maisons, appartements et terrains en vidéo. La nouvelle façon de chercher un bien immobilier en RDC.">
+    <meta name="twitter:image" content="https://esikatok-frontend.onrender.com/images/og-cover.png"><!-- Remplacer par un vrai PNG 1200x630 -->
+    <meta name="twitter:image:alt" content="EsikaTok - Plateforme immobilière en vidéo courte en RDC">
+
+    <!-- === Favicon & Icônes === -->
+    <link rel="icon" type="image/svg+xml" href="images/logo-compact.svg">
+    <link rel="apple-touch-icon" href="images/logo-compact.svg">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- === Structured Data JSON-LD (Google Rich Results) === -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "EsikaTok",
+        "url": "https://esikatok-frontend.onrender.com",
+        "description": "Plateforme immobilière en vidéo courte en République Démocratique du Congo. Découvrez, publiez et recherchez des biens immobiliers.",
+        "applicationCategory": "RealEstateApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "EsikaTok",
+            "url": "https://esikatok-frontend.onrender.com"
+        },
+        "inLanguage": "fr",
+        "areaServed": {
+            "@type": "Country",
+            "name": "République Démocratique du Congo"
+        }
+    }
+    </script>
+
+    <!-- === Preconnect pour performance === -->
+    <link rel="preconnect" href="https://esikatok-api.onrender.com" crossorigin>
+    <link rel="dns-prefetch" href="https://esikatok-api.onrender.com">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -135,6 +198,31 @@
     </style>
 </head>
 <body class="bg-sombre-900 text-sombre-50">
+    <!-- === SEO Fallback pour crawlers sans JavaScript === -->
+    <noscript>
+        <div style="background:#0f172a;color:#f1f5f9;padding:40px 20px;font-family:Inter,sans-serif;max-width:800px;margin:0 auto;">
+            <h1 style="font-size:2em;margin-bottom:16px;">EsikaTok — L'immobilier en vidéo courte</h1>
+            <p style="font-size:1.1em;line-height:1.7;margin-bottom:20px;">
+                EsikaTok est la première plateforme immobilière en vidéo courte en République Démocratique du Congo.
+                Découvrez des maisons, appartements, terrains et locaux commerciaux présentés en vidéo par des agents immobiliers certifiés.
+            </p>
+            <h2 style="font-size:1.4em;margin-bottom:12px;">Nos services</h2>
+            <ul style="line-height:2;">
+                <li>🏠 Recherche de biens immobiliers en vidéo (maisons, appartements, terrains)</li>
+                <li>📍 Couverture : Kinshasa, Lubumbashi, Goma, Bukavu, Mbuji-Mayi et toute la RDC</li>
+                <li>🎥 Publication de vidéos immobilières par les agents</li>
+                <li>💬 Messagerie directe avec les agents immobiliers</li>
+                <li>⭐ Favoris et alertes personnalisées</li>
+                <li>📊 Statistiques et visibilité pour les professionnels</li>
+            </ul>
+            <h2 style="font-size:1.4em;margin:20px 0 12px;">Types de biens disponibles</h2>
+            <p>Maison à vendre, appartement à louer, terrain à vendre, local commercial, bureau, entrepôt, immeuble — dans toutes les villes de la RDC.</p>
+            <p style="margin-top:20px;">
+                <strong>Activez JavaScript</strong> pour utiliser l'application EsikaTok et profiter de l'expérience complète en vidéo.
+            </p>
+        </div>
+    </noscript>
+
     <!-- === Splash Screen animé === -->
     <div id="splash-screen" class="fixed inset-0 z-[200] flex items-center justify-center" style="background:radial-gradient(ellipse at center, #0f172a 0%, #020617 100%);">
         <div class="flex flex-col items-center splash-logo-wrap">
