@@ -31,14 +31,21 @@ const EsikaTok = (() => {
     let _pageActuelle = null;
     let _historique = [];
 
-    /* --- Mesure dynamique de la hauteur du contenu (mobile-safe) --- */
+    /* --- Hauteur réelle du viewport (100vh est faux sur mobile) --- */
+    function majHauteurApp() {
+        document.documentElement.style.setProperty('--app-h', window.innerHeight + 'px');
+    }
+    majHauteurApp(); // exécuter immédiatement
+
+    /* --- Mesure dynamique de la hauteur du contenu (pour les cartes vidéo) --- */
     function majHauteurContenu() {
+        majHauteurApp();
         const contenu = document.getElementById('contenu-principal');
         if (contenu && contenu.clientHeight > 0) {
             document.documentElement.style.setProperty('--content-h', contenu.clientHeight + 'px');
         }
     }
-    /* Re-mesurer sur resize et orientation (avec délai pour laisser le layout se stabiliser) */
+    /* Re-mesurer sur resize et orientation */
     window.addEventListener('resize', () => setTimeout(majHauteurContenu, 50));
     window.addEventListener('orientationchange', () => setTimeout(majHauteurContenu, 200));
 

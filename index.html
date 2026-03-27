@@ -89,6 +89,8 @@
     <style>
         * { font-family: 'Inter', sans-serif; }
         body { background: #0f172a; color: #f1f5f9; overflow: hidden; }
+        /* Hauteur fiable sur mobile (100vh inclut la barre d'adresse sur iOS/Android) */
+        #app { height: var(--app-h, 100dvh); }
         /* Scroll snap pour le fil vidéo */
         .fil-video { scroll-snap-type: y mandatory; overflow-y: scroll; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
         .fil-video::-webkit-scrollbar { display: none; }
@@ -292,7 +294,7 @@
     </script>
 
     <!-- Conteneur principal de l'application -->
-    <div id="app" class="h-screen w-screen flex flex-col relative overflow-hidden safe-top safe-x">
+    <div id="app" class="w-screen flex flex-col relative overflow-hidden safe-top safe-x">
         <!-- Zone de contenu principal (changée par le routeur) -->
         <div id="contenu-principal" class="flex-1 overflow-hidden"></div>
     </div>
