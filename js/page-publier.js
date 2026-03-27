@@ -32,7 +32,7 @@ const PagePublier = (() => {
     function formulairePublication() {
         const C = Composants;
         return `
-        <div class="h-full overflow-y-auto pb-24 bg-sombre-900">
+        <div class="h-full overflow-y-auto pb-4 bg-sombre-900">
             <div class="px-4 pt-4 pb-2">
                 <h2 class="text-lg font-bold text-white mb-0.5">Publier un bien</h2>
                 <p class="text-sombre-200 text-xs">Remplissez les informations et ajoutez une vidéo. Soumission = modération admin obligatoire.</p>

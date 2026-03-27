@@ -25,7 +25,7 @@ const PageProfil = (() => {
         const C = Composants;
 
         return `
-        <div class="h-full overflow-y-auto pb-24 bg-sombre-900">
+        <div class="h-full overflow-y-auto pb-4 bg-sombre-900">
             <!-- En-tête profil -->
             <div class="bg-gradient-to-b from-primaire-900/40 to-sombre-900 px-4 pt-6 pb-5">
                 <div class="flex items-center gap-4">

@@ -24,7 +24,7 @@ const PageRecherche = (() => {
                 <div id="filtres-actifs" class="flex gap-2 mt-2 overflow-x-auto pb-1 hidden"></div>
             </div>
             <!-- Résultats -->
-            <div id="resultats-recherche" class="flex-1 overflow-y-auto px-3 pb-20">
+            <div id="resultats-recherche" class="flex-1 overflow-y-auto px-3 pb-4">
                 <p id="label-resultats" class="text-sombre-200 text-xs font-medium px-1 mb-2 mt-2">En vedette</p>
                 <div id="grille-recherche" class="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">${Composants.loader()}</div>
             </div>

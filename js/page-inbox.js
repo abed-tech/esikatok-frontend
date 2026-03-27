@@ -13,7 +13,7 @@ const PageInbox = (() => {
                 <h2 class="text-lg font-bold text-white">Messages</h2>
                 <p class="text-xs text-sombre-200 mt-0.5">Vos conversations avec les agents</p>
             </div>
-            <div id="liste-conversations" class="flex-1 overflow-y-auto pb-20">${Composants.loader()}</div>
+            <div id="liste-conversations" class="flex-1 overflow-y-auto pb-4">${Composants.loader()}</div>
         </div>`;
     }
 

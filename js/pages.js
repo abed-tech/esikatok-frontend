@@ -118,7 +118,7 @@ const Pages = (() => {
                 </div>
             </div>
             <!-- Résultats -->
-            <div id="resultats-recherche" class="flex-1 overflow-y-auto px-3 pb-20">
+            <div id="resultats-recherche" class="flex-1 overflow-y-auto px-3 pb-4">
                 <p class="text-sombre-200 text-xs font-medium px-1 mb-2 mt-2">En vedette</p>
                 <div id="grille-recherche" class="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">${Composants.loader()}</div>
             </div>
@@ -284,7 +284,7 @@ const Pages = (() => {
 
     function formulairePublication() {
         return `
-        <div class="h-full overflow-y-auto pb-24">
+        <div class="h-full overflow-y-auto pb-4">
             <div class="px-4 pt-4 pb-2">
                 <h2 class="text-lg font-bold text-white mb-1">Publier un bien</h2>
                 <p class="text-sombre-200 text-xs mb-4">Remplissez les informations et ajoutez une vidéo</p>
@@ -436,7 +436,7 @@ const Pages = (() => {
             <div class="px-4 pt-4 pb-2 border-b border-sombre-700/50">
                 <h2 class="text-lg font-bold text-white">Messages</h2>
             </div>
-            <div id="liste-conversations" class="flex-1 overflow-y-auto pb-20">${Composants.loader()}</div>
+            <div id="liste-conversations" class="flex-1 overflow-y-auto pb-4">${Composants.loader()}</div>
         </div>`;
     }
 
@@ -537,7 +537,7 @@ const Pages = (() => {
         const estAgent = EtatApp.estAgent();
 
         return `
-        <div class="h-full overflow-y-auto pb-24 bg-sombre-900">
+        <div class="h-full overflow-y-auto pb-4 bg-sombre-900">
             <!-- En-tête profil -->
             <div class="bg-gradient-to-b from-primaire-900/40 to-sombre-900 px-4 pt-6 pb-4">
                 <div class="flex items-center gap-4">
