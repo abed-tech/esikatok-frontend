@@ -41,7 +41,7 @@ const Composants = (() => {
         const aCoords = bien.latitude && bien.longitude;
 
         return `
-        <div class="carte-video relative w-full h-screen flex-shrink-0 bg-black" data-bien-id="${bien.id}" data-index="${index}">
+        <div class="carte-video relative w-full flex-shrink-0 bg-black" data-bien-id="${bien.id}" data-index="${index}">
             <!-- Vidéo / Placeholder -->
             <div class="absolute inset-0 flex items-center justify-center">
                 ${videoUrl ? `
@@ -68,12 +68,12 @@ const Composants = (() => {
             <div class="absolute bottom-0 left-0 right-0 h-80 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none"></div>
 
             <!-- Barre de progression fine (bottom, très discrète) -->
-            <div class="absolute bottom-[66px] left-0 right-0 h-[2px] bg-white/10 z-20 pointer-events-none md:bottom-[46px]">
+            <div class="absolute bottom-[8px] left-0 right-0 h-[2px] bg-white/10 z-20 pointer-events-none">
                 <div class="barre-progression h-full bg-white/40 transition-[width] duration-200" style="width:0%"></div>
             </div>
 
             <!-- Infos du bien (en bas à gauche) -->
-            <div class="absolute bottom-[76px] left-3 right-16 z-20 md:bottom-[56px] md:left-6">
+            <div class="absolute bottom-[18px] left-3 right-16 z-20 md:left-6">
                 <div class="flex items-center gap-2 mb-2">
                     <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wide ${bien.type_offre === 'vente' ? 'bg-green-500/80' : 'bg-primaire-500/80'} text-white">
                         ${bien.type_offre === 'vente' ? 'Vente' : bien.type_offre === 'location' ? 'Location' : bien.type_offre}
@@ -93,7 +93,7 @@ const Composants = (() => {
             </div>
 
             <!-- Boutons latéraux (à droite) -->
-            <div class="absolute right-2 bottom-[100px] flex flex-col items-center gap-4 z-20 md:bottom-[70px] md:right-4">
+            <div class="absolute right-2 bottom-[42px] flex flex-col items-center gap-4 z-20 md:right-4">
                 <!-- Photo agent -->
                 <button onclick="event.stopPropagation();EsikaTok.voirAgent(${bien.agent_id})" class="w-11 h-11 rounded-full overflow-hidden border-2 border-white/80 shadow-lg">
                     ${bien.agent_photo ? `<img src="${bien.agent_photo}" class="w-full h-full object-cover" alt="">` :
@@ -107,7 +107,7 @@ const Composants = (() => {
                     <span class="text-white text-[10px] mt-0.5">${bien.nombre_favoris || 0}</span>
                 </button>
                 <!-- Message -->
-                <button onclick="event.stopPropagation();EsikaTok.contacterAgent(${bien.id})" class="flex flex-col items-center group">
+                <button onclick="event.stopPropagation();EsikaTok.contacterAgent(${bien.id},${bien.agent_id})" class="flex flex-col items-center group">
                     <div class="w-10 h-10 rounded-full bg-black/30 flex items-center justify-center backdrop-blur-sm">
                         <svg class="w-6 h-6 text-white group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
                     </div>
@@ -130,12 +130,12 @@ const Composants = (() => {
             </div>
 
             <!-- Son (toggle mute, bas-droite) -->
-            <button onclick="event.stopPropagation();EsikaTok.toggleMute(this)" class="btn-mute absolute bottom-[72px] right-2 z-20 w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center md:bottom-[52px] md:right-4">
+            <button onclick="event.stopPropagation();EsikaTok.toggleMute(this)" class="btn-mute absolute bottom-[14px] right-2 z-20 w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center md:right-4">
                 <svg class="icone-mute w-4 h-4 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/></svg>
             </button>
 
             <!-- Toucher pour voir détail -->
-            <button onclick="event.stopPropagation();EsikaTok.voirDetail(${bien.id})" class="absolute bottom-[76px] left-3 px-3 py-1.5 bg-white/15 backdrop-blur-sm rounded-full text-white text-xs font-medium hover:bg-white/25 transition z-20 md:bottom-[56px] md:left-6">
+            <button onclick="event.stopPropagation();EsikaTok.voirDetail(${bien.id})" class="absolute bottom-[18px] left-3 px-3 py-1.5 bg-white/15 backdrop-blur-sm rounded-full text-white text-xs font-medium hover:bg-white/25 transition z-20 md:left-6">
                 Voir détail &rarr;
             </button>
         </div>`;

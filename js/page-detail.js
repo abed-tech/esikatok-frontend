@@ -135,7 +135,7 @@ const PageDetail = (() => {
 
                 <!-- Actions -->
                 <div class="flex gap-2 pt-1 pb-4">
-                    ${Composants.bouton('💬 Contacter', `EsikaTok.contacterAgent(${b.id})`, { variante:'primaire', plein:true })}
+                    ${Composants.bouton('💬 Contacter', `EsikaTok.contacterAgent(${b.id},${b.agent_id})`, { variante:'primaire', plein:true })}
                     ${Composants.bouton('❤️ Favori', `EsikaTok.toggleFavori(${b.id})`, { variante:'secondaire' })}
                     ${Composants.bouton('↗', `EsikaTok.partagerBien(${b.id},'${encodeURIComponent(b.titre)}')`, { variante:'secondaire' })}
                 </div>

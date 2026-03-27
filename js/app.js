@@ -122,10 +122,16 @@ const EsikaTok = (() => {
         }
     }
 
-    function contacterAgent(bienId) {
+    function contacterAgent(bienId, agentId) {
         if (!EtatApp.estConnecte()) {
             Composants.afficherToast("Connectez-vous pour contacter l'agent.", 'attention');
             return naviguer('connexion', { action: "contacter l'agent" });
+        }
+        /* Bloquer l'envoi de message à soi-même */
+        const moi = EtatApp.obtenir('utilisateur');
+        if (agentId && moi && agentId === moi.id) {
+            Composants.afficherToast("Vous ne pouvez pas vous envoyer un message.", 'attention');
+            return;
         }
         const contenu = `
         <div class="space-y-3">
