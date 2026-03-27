@@ -42,8 +42,18 @@ const Pages = (() => {
                     const video = entry.target.querySelector('.video-lecteur');
                     if (!video) return;
                     if (entry.isIntersecting) {
-                        if (!video.src && video.dataset.src) video.src = video.dataset.src;
-                        video.play().catch(() => {});
+                        if (!video.getAttribute('src') && video.dataset.src) {
+                            video.src = video.dataset.src;
+                            video.load();
+                        }
+                        video.muted = true;
+                        const p = video.play();
+                        if (p && p.catch) p.catch(() => {
+                            video.addEventListener('canplay', function h() {
+                                video.removeEventListener('canplay', h);
+                                video.play().catch(() => {});
+                            });
+                        });
                     } else {
                         video.pause();
                     }

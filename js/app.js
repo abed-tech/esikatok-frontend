@@ -33,16 +33,13 @@ const EsikaTok = (() => {
 
     /* --- Mesure dynamique de la hauteur du contenu (mobile-safe) --- */
     function majHauteurContenu() {
-        const mesurer = () => {
-            const contenu = document.getElementById('contenu-principal');
-            if (contenu) {
-                document.documentElement.style.setProperty('--content-h', contenu.clientHeight + 'px');
-            }
-        };
-        requestAnimationFrame(mesurer);
-        setTimeout(mesurer, 80);
+        const contenu = document.getElementById('contenu-principal');
+        if (contenu && contenu.clientHeight > 0) {
+            document.documentElement.style.setProperty('--content-h', contenu.clientHeight + 'px');
+        }
     }
-    window.addEventListener('resize', majHauteurContenu);
+    /* Re-mesurer sur resize et orientation (avec délai pour laisser le layout se stabiliser) */
+    window.addEventListener('resize', () => setTimeout(majHauteurContenu, 50));
     window.addEventListener('orientationchange', () => setTimeout(majHauteurContenu, 200));
 
     /* --- Routeur SPA --- */
@@ -57,7 +54,7 @@ const EsikaTok = (() => {
         }
 
         /* Arrêter les vidéos en lecture */
-        document.querySelectorAll('video').forEach(v => { v.pause(); v.removeAttribute('src'); v.load(); });
+        document.querySelectorAll('video').forEach(v => { v.pause(); v.src = ''; });
 
         /* Historique interne pour le bouton retour */
         if (_pageActuelle) _historique.push({ page: _pageActuelle, params: EtatApp.obtenir('pageParams') || {} });
@@ -84,8 +81,10 @@ const EsikaTok = (() => {
             });
         }
 
-        /* Mettre à jour --content-h après que la nav soit visible/masquée */
+        /* Mettre à jour --content-h SYNCHRONE (avant initialiser du feed) */
         majHauteurContenu();
+        /* Re-mesure après layout complet */
+        requestAnimationFrame(majHauteurContenu);
 
         /* Initialiser la page */
         if (route.module.initialiser) {
