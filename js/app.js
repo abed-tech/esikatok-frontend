@@ -75,12 +75,14 @@ const EsikaTok = (() => {
            Exception : feed-recherche = plein écran vidéo (pas de padding bottom) */
         contenu.classList.toggle('safe-bottom', !route.nav && page !== 'feed-recherche');
 
-        /* État actif de la nav */
+        /* État actif de la nav (classe active → dot bleu + icône blanche) */
         if (route.nav) {
-            document.querySelectorAll('.nav-btn').forEach(btn => {
+            document.querySelectorAll('.nav-btn[data-nav]').forEach(btn => {
                 const cible = btn.getAttribute('data-nav');
-                btn.classList.toggle('text-primaire-400', cible === page);
-                btn.classList.toggle('text-sombre-200', cible !== page);
+                const estActif = cible === page;
+                btn.classList.toggle('active', estActif);
+                btn.classList.toggle('text-white', estActif);
+                btn.classList.toggle('text-sombre-400', !estActif);
             });
         }
 

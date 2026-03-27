@@ -119,6 +119,16 @@
         .safe-bottom { padding-bottom: env(safe-area-inset-bottom, 0px); }
         .safe-x { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-area-inset-right, 0px); }
 
+        /* === Navigation basse premium === */
+        .nav-btn { -webkit-tap-highlight-color: transparent; transition: all 0.2s ease; }
+        .nav-btn .nav-icon { transition: transform 0.2s ease, color 0.2s ease; }
+        .nav-btn.active .nav-icon { transform: scale(1.1); }
+        .nav-btn .nav-dot { width: 4px; height: 4px; border-radius: 50%; background: transparent; transition: all 0.25s ease; margin-top: 3px; }
+        .nav-btn.active .nav-dot { background: #3b82f6; box-shadow: 0 0 6px rgba(59,130,246,0.5); }
+        .nav-btn .nav-label { transition: color 0.2s ease; }
+        .nav-publier-btn { transition: transform 0.15s ease, box-shadow 0.15s ease; }
+        .nav-publier-btn:active { transform: scale(0.9); }
+
         /* === Chat Premium (thème plateforme) === */
         .chat-bg { background: #0f172a; }
         .bulle-moi { background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); border-radius: 18px 18px 4px 18px; }
@@ -284,32 +294,40 @@
         <!-- Zone de contenu principal (changée par le routeur) -->
         <div id="contenu-principal" class="flex-1 overflow-hidden"></div>
 
-        <!-- Navigation basse (flex child — pas de chevauchement) -->
-        <nav id="nav-basse" class="flex-shrink-0 z-50 bg-sombre-900/95 backdrop-blur-md border-t border-sombre-700/50 safe-bottom hidden">
-            <div class="flex justify-around items-center h-14 max-w-lg mx-auto px-2">
-                <button onclick="EsikaTok.naviguer('accueil')" data-nav="accueil" class="nav-btn flex flex-col items-center justify-center w-14 h-14 text-sombre-200 hover:text-primaire-400 transition-colors">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0h4"/></svg>
-                    <span class="text-[10px] mt-0.5">Accueil</span>
+        <!-- Navigation basse premium (flex child — pas de chevauchement) -->
+        <nav id="nav-basse" class="flex-shrink-0 z-50 bg-sombre-900/95 backdrop-blur-md border-t border-sombre-700/30 safe-bottom hidden">
+            <div class="flex justify-around items-center h-[58px] max-w-lg mx-auto px-1">
+                <!-- Accueil -->
+                <button onclick="EsikaTok.naviguer('accueil')" data-nav="accueil" class="nav-btn flex flex-col items-center justify-center flex-1 h-full text-sombre-400 relative">
+                    <svg class="nav-icon w-[22px] h-[22px]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0h4"/></svg>
+                    <span class="nav-label text-[10px] font-medium mt-0.5">Accueil</span>
+                    <div class="nav-dot"></div>
                 </button>
-                <button onclick="EsikaTok.naviguer('recherche')" data-nav="recherche" class="nav-btn flex flex-col items-center justify-center w-14 h-14 text-sombre-200 hover:text-primaire-400 transition-colors">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                    <span class="text-[10px] mt-0.5">Recherche</span>
+                <!-- Recherche -->
+                <button onclick="EsikaTok.naviguer('recherche')" data-nav="recherche" class="nav-btn flex flex-col items-center justify-center flex-1 h-full text-sombre-400 relative">
+                    <svg class="nav-icon w-[22px] h-[22px]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                    <span class="nav-label text-[10px] font-medium mt-0.5">Recherche</span>
+                    <div class="nav-dot"></div>
                 </button>
-                <button onclick="EsikaTok.naviguer('publier')" data-nav="publier" class="nav-btn flex flex-col items-center justify-center w-14 h-14">
-                    <div class="w-10 h-7 bg-gradient-to-r from-primaire-500 to-accent-500 rounded-lg flex items-center justify-center">
-                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
+                <!-- Publier (bouton central TikTok) -->
+                <button onclick="EsikaTok.naviguer('publier')" data-nav="publier" class="nav-btn flex flex-col items-center justify-center flex-1 h-full">
+                    <div class="nav-publier-btn w-11 h-8 rounded-xl bg-gradient-to-br from-primaire-500 via-primaire-600 to-accent-500 flex items-center justify-center shadow-lg shadow-primaire-600/30">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
                     </div>
-                    <span class="text-[10px] mt-0.5 text-sombre-200">Publier</span>
                 </button>
-                <button onclick="EsikaTok.naviguer('messages')" data-nav="messages" class="nav-btn flex flex-col items-center justify-center w-14 h-14 text-sombre-200 hover:text-primaire-400 transition-colors relative">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                <!-- Messages -->
+                <button onclick="EsikaTok.naviguer('messages')" data-nav="messages" class="nav-btn flex flex-col items-center justify-center flex-1 h-full text-sombre-400 relative">
+                    <svg class="nav-icon w-[22px] h-[22px]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
                     <span id="badge-messages" class="hidden badge-notif badge-notif--abs" style="--badge-ring:#0f172af2">0</span>
-                    <span class="text-[10px] mt-0.5">Messages</span>
+                    <span class="nav-label text-[10px] font-medium mt-0.5">Messages</span>
+                    <div class="nav-dot"></div>
                 </button>
-                <button onclick="EsikaTok.naviguer('profil')" data-nav="profil" class="nav-btn flex flex-col items-center justify-center w-14 h-14 text-sombre-200 hover:text-primaire-400 transition-colors relative">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                <!-- Profil -->
+                <button onclick="EsikaTok.naviguer('profil')" data-nav="profil" class="nav-btn flex flex-col items-center justify-center flex-1 h-full text-sombre-400 relative">
+                    <svg class="nav-icon w-[22px] h-[22px]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
                     <span id="badge-profil" class="hidden badge-notif badge-notif--abs" style="--badge-ring:#0f172af2">0</span>
-                    <span class="text-[10px] mt-0.5">Profil</span>
+                    <span class="nav-label text-[10px] font-medium mt-0.5">Profil</span>
+                    <div class="nav-dot"></div>
                 </button>
             </div>
         </nav>
