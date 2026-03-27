@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="api-base-url" content="https://esikatok-api.onrender.com">
 
     <!-- === SEO — Balises essentielles === -->
@@ -92,7 +92,7 @@
         /* Scroll snap pour le fil vidéo */
         .fil-video { scroll-snap-type: y mandatory; overflow-y: scroll; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
         .fil-video::-webkit-scrollbar { display: none; }
-        .carte-video { scroll-snap-align: start; height: 100%; }
+        .carte-video { scroll-snap-align: start; height: var(--content-h, 100dvh); }
         /* Animations */
         .fondu-entree { animation: fonduEntree 0.3s ease-out; }
         @keyframes fonduEntree { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }

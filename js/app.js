@@ -31,6 +31,20 @@ const EsikaTok = (() => {
     let _pageActuelle = null;
     let _historique = [];
 
+    /* --- Mesure dynamique de la hauteur du contenu (mobile-safe) --- */
+    function majHauteurContenu() {
+        const mesurer = () => {
+            const contenu = document.getElementById('contenu-principal');
+            if (contenu) {
+                document.documentElement.style.setProperty('--content-h', contenu.clientHeight + 'px');
+            }
+        };
+        requestAnimationFrame(mesurer);
+        setTimeout(mesurer, 80);
+    }
+    window.addEventListener('resize', majHauteurContenu);
+    window.addEventListener('orientationchange', () => setTimeout(majHauteurContenu, 200));
+
     /* --- Routeur SPA --- */
     function naviguer(page, params = {}) {
         const route = ROUTES[page];
@@ -69,6 +83,9 @@ const EsikaTok = (() => {
                 btn.classList.toggle('text-sombre-200', cible !== page);
             });
         }
+
+        /* Mettre à jour --content-h après que la nav soit visible/masquée */
+        majHauteurContenu();
 
         /* Initialiser la page */
         if (route.module.initialiser) {
