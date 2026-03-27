@@ -118,6 +118,8 @@
         .safe-top { padding-top: env(safe-area-inset-top, 0px); }
         .safe-bottom { padding-bottom: env(safe-area-inset-bottom, 0px); }
         .safe-x { padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-area-inset-right, 0px); }
+        /* Réserve l’espace pour la nav fixe (58px) + barre système téléphone */
+        .avec-nav { padding-bottom: calc(58px + env(safe-area-inset-bottom, 0px)); }
 
         /* === Navigation basse premium === */
         .nav-btn { -webkit-tap-highlight-color: transparent; transition: all 0.2s ease; }
@@ -293,10 +295,11 @@
     <div id="app" class="h-screen w-screen flex flex-col relative overflow-hidden safe-top safe-x">
         <!-- Zone de contenu principal (changée par le routeur) -->
         <div id="contenu-principal" class="flex-1 overflow-hidden"></div>
+    </div>
 
-        <!-- Navigation basse premium (flex child — pas de chevauchement) -->
-        <nav id="nav-basse" class="flex-shrink-0 z-50 bg-sombre-900/95 backdrop-blur-md border-t border-sombre-700/30 safe-bottom hidden">
-            <div class="flex justify-around items-center h-[58px] max-w-lg mx-auto px-1">
+    <!-- Navigation basse fixe (hors du flux flex) -->
+    <nav id="nav-basse" class="fixed bottom-0 left-0 right-0 z-50 bg-sombre-900/95 backdrop-blur-md border-t border-sombre-700/30 safe-bottom safe-x hidden">
+        <div class="flex justify-around items-center h-[58px] max-w-lg mx-auto px-1">
                 <!-- Accueil -->
                 <button onclick="EsikaTok.naviguer('accueil')" data-nav="accueil" class="nav-btn flex flex-col items-center justify-center flex-1 h-full text-sombre-400 relative">
                     <svg class="nav-icon w-[22px] h-[22px]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0h4"/></svg>
@@ -329,9 +332,8 @@
                     <span class="nav-label text-[10px] font-medium mt-0.5">Profil</span>
                     <div class="nav-dot"></div>
                 </button>
-            </div>
-        </nav>
-    </div>
+        </div>
+    </nav>
 
     <!-- Zone de toasts/notifications -->
     <div id="zone-toasts" class="fixed left-4 right-4 z-[100] flex flex-col items-center gap-2 pointer-events-none" style="top: max(env(safe-area-inset-top, 0px), 16px)"></div>

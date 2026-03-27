@@ -68,12 +68,14 @@ const EsikaTok = (() => {
         contenu.innerHTML = route.module.afficher(params);
         contenu.className = 'flex-1 overflow-hidden fondu-entree';
 
-        /* Navigation basse */
+        /* Navigation basse fixe */
         const nav = document.getElementById('nav-basse');
+        const app = document.getElementById('app');
         nav.classList.toggle('hidden', !route.nav);
-        /* Pages sans nav → le contenu a besoin du safe-area bottom (indicateur home)
-           Exception : feed-recherche = plein écran vidéo (pas de padding bottom) */
-        contenu.classList.toggle('safe-bottom', !route.nav && page !== 'feed-recherche');
+        /* Avec nav → réserver l’espace en bas de #app (nav fixe + barre système) */
+        app.classList.toggle('avec-nav', !!route.nav);
+        /* Sans nav → safe-bottom sur #app pour la barre système (sauf feed plein écran) */
+        app.classList.toggle('safe-bottom', !route.nav && page !== 'feed-recherche');
 
         /* État actif de la nav (classe active → dot bleu + icône blanche) */
         if (route.nav) {
