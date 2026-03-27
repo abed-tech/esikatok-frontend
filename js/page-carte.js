@@ -18,7 +18,7 @@ const PageCarte = (() => {
                 </div>
             </div>
             <!-- Barre d'info en bas -->
-            <div id="carte-info" class="bg-sombre-800 border-t border-sombre-700/50 px-4 py-3 safe-bottom hidden">
+            <div id="carte-info" class="bg-sombre-800 border-t border-sombre-700/50 px-4 py-3 hidden">
                 <div class="flex items-center justify-between gap-3">
                     <div class="min-w-0 flex-1">
                         <p id="carte-info-titre" class="text-sm font-medium text-white truncate"></p>

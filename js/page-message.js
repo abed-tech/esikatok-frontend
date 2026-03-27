@@ -123,7 +123,7 @@ const PageMessage = (() => {
                 ${Composants.loader()}
             </div>
             <!-- ====== ZONE DE SAISIE (toujours visible) ====== -->
-            <div class="chat-saisie bg-sombre-900 border-t border-sombre-700/40 px-3 py-2.5 safe-bottom">
+            <div class="chat-saisie bg-sombre-900 border-t border-sombre-700/40 px-3 py-2.5">
                 <div class="flex items-center gap-2 max-w-lg mx-auto">
                     <input type="text" id="input-message" placeholder="Écrire un message..."
                         class="flex-1 h-11 pl-4 pr-4 bg-sombre-800 border border-sombre-700/50 rounded-full text-sm text-white placeholder-sombre-200/50 focus:outline-none focus:border-primaire-500 focus:ring-2 focus:ring-primaire-500/20 transition-all"

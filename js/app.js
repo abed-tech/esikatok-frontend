@@ -71,6 +71,9 @@ const EsikaTok = (() => {
         /* Navigation basse */
         const nav = document.getElementById('nav-basse');
         nav.classList.toggle('hidden', !route.nav);
+        /* Pages sans nav → le contenu a besoin du safe-area bottom (indicateur home)
+           Exception : feed-recherche = plein écran vidéo (pas de padding bottom) */
+        contenu.classList.toggle('safe-bottom', !route.nav && page !== 'feed-recherche');
 
         /* État actif de la nav */
         if (route.nav) {
